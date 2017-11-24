@@ -15,13 +15,14 @@ class Distrito(models.Model):
     """
     nombre = models.CharField('Nombre del distrito', max_length=128)
     cantidad_votantes = models.IntegerField('Cantidad de votantes', default=0)
-    votos_totales = models.IntegerField('Gente que fue a votar', default=0)
     latitude = models.DecimalField('Latitud', max_digits=14, decimal_places=10, default=0)
     longitude = models.DecimalField('Latitud', max_digits=14, decimal_places=10, default=0)
 
 
     def __str__(self):
         return 'Distrito {}'.format(self.nombre)
+
+
 
     class Meta:
         managed = True
@@ -40,7 +41,6 @@ class Candidato(models.Model):
     nombre = models.CharField('Nombre del Candidato', max_length=128)
     apellido = models.CharField('Apellido del Candidato', max_length=128)
     partido = models.CharField('Partido Politico al que pertenece el candidato', max_length=128)
-    votos_obtenidos= models.IntegerField('Cantidad de Votos', default=0)
     
     def __str__(self):
         return 'Candidato {}'.format(self.nombre)
@@ -65,6 +65,7 @@ class Votos(models.Model):
     
     def __str__(self):
         return 'Voto por  {}'.format(self.Candidato.nombre)
+
 
     class Meta:
         managed = True
