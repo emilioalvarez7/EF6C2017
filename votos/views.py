@@ -21,6 +21,14 @@ def resultado_global(request):
     context['distritos'] = Distrito.objects.all()
     #TODO TU CODIGO AQUI
     context['votos'] = Votos.objects.all()
+    context['votos_nulos'] = Votos.objects.all().filter(Votos.Candidato.nombre == 'nulo')
+    votos = Votos.objects.all()
+    votonull = Votos.objects.all().filter(Votos.Candidato.nombre == 'nulo')
+    votonullx = 0
+    for voto in Votos:
+        votonullx + 1
+
+    context['porcentaje_votos_nulos'] =  {votonullx}
     
 
 
@@ -40,8 +48,10 @@ def resultado_distrital(request):
     context={}
 
     #TODO TU CODIGO AQUI
+    
     context['distritos'] = Distrito.objects.all()
-    context['votos'] = Votos.objects.all()
+    context['distrito.nombre'] = Distrito.objects.all("nombre")
+    context
     
 
 
