@@ -20,6 +20,10 @@ def resultado_global(request):
     context={}
     context['distritos'] = Distrito.objects.all()
     #TODO TU CODIGO AQUI
+    context['votos'] = Votos.objects.all()
+    
+
+
 
     return render(request,'global.html',context)
 
@@ -36,5 +40,9 @@ def resultado_distrital(request):
     context={}
 
     #TODO TU CODIGO AQUI
+    context['distritos'] = Distrito.objects.all()
+    context['votos'] = Votos.objects.all()
+    
+
 
     return render(request,'distrital.html',context)
